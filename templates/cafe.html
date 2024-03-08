@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{cafe.name}}{% endblock title %}
+
+{% block content %}
+
+<!-- Header-->
+<header class="bg-dark py-5" style="background-image: url('{{cafe.img_url}}'); background-size: cover; background-position:  center">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white" style="background: rgba(0,0,0,.6); width: 100%">
+            <h1 class="display-4 fw-bolder" >{{cafe.name}}</h1>
+            <p class="lead fw-normal text-white-50 mb-0" style="color: white !important">{{cafe.location}}</p>
+        </div>
+    </div>
+</header>
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5">
+        <div class="about-text">
+            <h3>About</h3>
+            <p>This wonderful cafe is located in <strong>{{cafe.location}}</strong> and the average coffee costs <strong>{{cafe.coffee_price}}</strong>.  Hopefully you know how many are in your crowd! Because there are only <strong>{{cafe.seats}}</strong> here!</p>
+            <p>Find the address below!</p>
+        </div>
+        <div class="map_location">
+            <p>Address: <a class='btn btn-dark' href="{{cafe.map_url}}">Click Here</a></p>
+        </div>
+        <h4>Does this Cafe have... </h4>
+        <p>WiFi? <strong>{{cafe.has_wifi}}</strong> </p>
+        <p>Bathroom? <strong>{{cafe.has_toilet}}</strong></p>
+        <p>Sockets? <strong>{{cafe.has_sockets}}</strong></p>
+    </div>
+</section>
+
+{% endblock content %}

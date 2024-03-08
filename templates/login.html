@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "bootstrap5/form.html" import render_form %} 
+{% block title %}Log In{% endblock title %}
+
+
+{% block content %}
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Log In</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Need to Sign up? </p>
+            <br>
+            <a href="{{url_for('register')}}" class="btn btn-light">Register </a>
+        </div>
+    </div>
+</header>
+<main class="mb-4">
+    <div class="container">
+      <div class="row">
+        <!-- TODO: add a flash message here for users registering twice -->
+        {% with messages = get_flashed_messages()  %}
+          {% if messages %}
+            {% for message in messages %}
+              <p>{{message}}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <!--TODO: render login form here-->
+          {{render_form(form, novalidate=True)}}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock content %}

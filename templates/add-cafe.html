@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block title %}Add Cafe{% endblock title %}
+
+
+{% block content %}
+
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Add A Cafe</h1>
+        </div>
+    </div>
+</header>
+
+<!-- Section -->
+<section class="py-5">
+    <div class="container px-4 px-lg-5">
+        {% if current_user.id == 1 %}
+            {{render_form(form, novalidate=True)}}
+        {%else%}
+            <p>You are not the admin. You cannot add Cafe.</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}

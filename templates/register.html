@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from "bootstrap5/form.html" import render_form %}
+{% block title %}Register{% endblock title %}
+
+
+{% block content %}
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Register Your Account</h1>
+            <!--<p class="lead fw-normal text-white-50 mb-0">
+                Unless you're already a member then, 
+            </p>
+            <a href="{{url_for('login')}}" class="btn btn-light">Sign In</a> -->
+        </div>
+    </div>
+</header>
+
+<main class="mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <!--TODO: render your registration form here-->
+          {{render_form(form, novalidate=True)}}
+  
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock content %}
